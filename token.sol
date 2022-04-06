@@ -1,5 +1,5 @@
 /*
-    Copyright 2020 DPAY Core.
+    Copyright 2022 HY Core.
     SPDX-License-Identifier: Apache-2.0
 */
 pragma solidity 0.6.12;
@@ -33,7 +33,8 @@ contract MakeToken {
     //=========Function=======
     constructor(string memory simpleName, string memory detailName,uint256  total)public{
         require(bytes(simpleName).length>0,"name is null");
-        balances[msg.sender] = total * totalSupply;
+        totalSupply = total * totalSupply;
+        balances[msg.sender] = totalSupply;
         symbol = simpleName;
         name = detailName;
 
